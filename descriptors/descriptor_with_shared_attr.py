@@ -1,11 +1,11 @@
 class Descriptor(object):
     x = 0
 
-    def __get__(cls, obj, owner):
-        return cls.x
-    def __set__(cls, obj, value):
+    def __get__(self, obj, owner):
+        return self.x
+    def __set__(self, obj, value):
         print('setting')
-        cls.x = value
+        self.x = value
 
 class Test(object):
     d = Descriptor()
