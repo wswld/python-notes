@@ -1,3 +1,5 @@
+"""The simplest abstract factory example as music DAW software pseudocode"""
+
 from random import choice
 from abc import abstractmethod
 
@@ -7,6 +9,9 @@ class SampleBank(object):
     def __init__(self, genre, type_):
         self.genre = genre
         self.type = type_
+
+    def load(self):
+        print "Loading {} {}.".format(self.genre, self.type)
 
 
 class TechnoBeatsBank(SampleBank):
@@ -30,7 +35,7 @@ class HipHopBassBank(SampleBank):
         super(HipHopBassBank, self).__init__("hip-hop", "bass")
 
 
-class TrackProject(object):
+class AbstractTrackProject(object):
     """Abstract factory class"""
 
     @abstractmethod
@@ -39,8 +44,14 @@ class TrackProject(object):
     @abstractmethod
     def get_bass_bank(self): raise NotImplementedError()
 
+    def create(self, name):
+        if name == 'techno':
+            return TechnoTrackProject()
+        if name == 'hip-hop':
+            return HipHopTrackProject()
 
-class TechnoTrackProject(TrackProject):
+
+class TechnoTrackProject(AbstractTrackProject):
 
     genre = 'techno'
 
@@ -49,7 +60,7 @@ class TechnoTrackProject(TrackProject):
     def get_bass_bank(self): return TechnoBassBank()
 
 
-class HipHopTrackProject(TrackProject):
+class HipHopTrackProject(AbstractTrackProject):
 
     genre = 'hip-hop'
 
@@ -60,11 +71,8 @@ class HipHopTrackProject(TrackProject):
 
 if __name__ == "__main__":
     for x in range(5):
-        project = choice([TechnoTrackProject, HipHopTrackProject])()
+        project = AbstractTrackProject().create(choice(['techno', 'hip-hop']))
         print 'User #{} wants to make some {}'.format(x+1, project.genre)
-        print "He gets a fresh new {}".format(project.__class__.__name__)
-        print "That contains {} for his beats and {} for bass".format(
-            project.get_beats_bank().__class__.__name__,
-            project.get_bass_bank().__class__.__name__
-        )
+        project.get_beats_bank().load()
+        project.get_bass_bank().load()
         print '-'*80 if x < 4 else '- FIN -'
