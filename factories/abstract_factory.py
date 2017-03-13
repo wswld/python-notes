@@ -1,4 +1,4 @@
-"""This example is based on examples in https://en.wikipedia.org/wiki/Abstract_factory_pattern"""
+"""This example is based on https://en.wikipedia.org/wiki/Abstract_factory_pattern"""
 
 from random import choice
 from abc import abstractmethod
@@ -8,22 +8,23 @@ class Button(object):
     """Abstract product"""
 
     @abstractmethod
-    def paint(self):
+    def draw(self):
         raise NotImplementedError()
 
 
 class WinButton(Button):
     """Concrete product #1"""
 
-    def paint(self):
+    def draw(self):
         print "Render a button in a Windows style"
 
 
 class OSXButton(Button):
     """Concrete product #2"""
 
-    def paint(self):
+    def draw(self):
         print "Render a button in an OSX style"
+
 
 class GUIFactory(object):
     """Abstract factory"""
@@ -39,15 +40,18 @@ class WinFactory(GUIFactory):
     def create_button(self):
         return WinButton()
 
+
 class OSXFactory(GUIFactory):
     """Concrete factory #2"""
 
     def create_button(self):
         return OSXButton()
 
+
 if __name__ == '__main__':
     # TODO(gva): Not sure about this part
     # Possibly there could be an Application obj unaware of OS that makes a call to the paint() method
+    # Or am I getting into Java territory already?
     current_os = choice(['osx', 'win', 'linux'])
     factory = None
     if current_os == 'win':
@@ -58,4 +62,4 @@ if __name__ == '__main__':
         raise NotImplementedError('OS {} is not supported'.format(current_os))
 
     button = factory.create_button()
-    button.paint()
+    button.draw()
