@@ -1,4 +1,7 @@
-"""This example is based on https://en.wikipedia.org/wiki/Abstract_factory_pattern"""
+"""This example is based on:
+* http://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html#abstract-factories
+* https://en.wikipedia.org/wiki/Abstract_factory_pattern
+"""
 
 from random import choice
 from abc import abstractmethod

@@ -1,4 +1,4 @@
-# Not a singleton per se, but a very similar (albeit more pyhtonic) concept.
+# Not a singleton per se, but a very similar (albeit more pyhtonic) pattern.
 
 
 class Borg(object):

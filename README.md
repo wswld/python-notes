@@ -18,4 +18,9 @@ Short collection of python examples I come up with while studying Python theory.
 
 ### Factories
 
-* [Factory through a static method](factories/staticmethod.py)
+* [Abstract Factory](factories/abstract_factory.py)
+* [Factory through a static method](factories/staticmethod_factory.py)
+
+### Singletons
+
+* [Borg](singletons/borg.py)
