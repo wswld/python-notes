@@ -53,8 +53,8 @@ class OSXFactory(GUIFactory):
 
 if __name__ == '__main__':
     # TODO(gva): Not sure about this part
-    # Possibly there could be an Application obj unaware of OS that makes a call to the paint() method
-    # Or am I getting into Java territory already?
+    # Possibly there could be an App obj unaware of the OS that makes a call to the draw() method
+    # Or am I getting into Java territory here?
     current_os = choice(['osx', 'win', 'linux'])
     factory = None
     if current_os == 'win':
