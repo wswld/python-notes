@@ -1,7 +1,9 @@
 # Python Notes
 
 Short collection of python examples I come up with while studying Python theory. Ideally, it should be constantly 
- updated and reviewed. Contact me if not.
+ updated and reviewed. Contact me if not - drinks are on me. Just kidding - BYOB.
+
+![Cheers!](http://gph.is/1hlcLNf)
 
 ## Patterns
 
@@ -19,7 +21,7 @@ Short collection of python examples I come up with while studying Python theory.
 ### Factories
 
 * [Abstract Factory](factories/abstract_factory.py)
-* [Factory through a static method](factories/staticmethod_factory.py)
+* [Factory Method](factories/factory_method.py)
 
 ### Singletons
 

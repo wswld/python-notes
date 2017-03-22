@@ -1,4 +1,6 @@
-""" The simplest approach to factories in Python - static method"""
+""" Simple factory method is through a static method of a class
+Loosely based on: https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html#simple-factory-method
+"""
 from random import choice
 from abc import abstractmethod
 
