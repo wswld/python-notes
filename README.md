@@ -3,7 +3,7 @@
 Short collection of python examples I come up with while studying Python theory. Ideally, it should be constantly 
  updated and reviewed. Contact me if not - drinks are on me. Just kidding - BYOB.
 
-![Cheers!](http://gph.is/1hlcLNf)
+![Cheers!](https://media.giphy.com/media/Zw3oBUuOlDJ3W/giphy.gif)
 
 ## Patterns
 
