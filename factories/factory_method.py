@@ -15,9 +15,9 @@ class Animal(object):
 
     @staticmethod
     def factory(type):
-        if type == "Dog": return Dog()
-        if type == "Sheep": return Sheep()
-        if type == "Duck": return Duck()
+        if type == "dog": return Dog()
+        if type == "sheep": return Sheep()
+        if type == "pig": return Pig()
         raise TypeError("Unsupported type")
 
 
@@ -35,13 +35,13 @@ class Sheep(Animal):
         return "Baaa!"
 
 
-class Duck(Animal):
-    """Duck class"""
+class Pig(Animal):
+    """Pig class"""
 
     def sound(self):
-        return "Quack!"
+        return "Oink!"
 
-choices = [t.__name__ for t in Animal.__subclasses__()]
+choices = [t.__name__.lower() for t in Animal.__subclasses__()]
 for i in range(10):
     a = Animal.factory(choice(choices))
     print a.sound()
