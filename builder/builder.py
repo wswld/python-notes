@@ -1,16 +1,16 @@
 # loosely based on https://en.wikipedia.org/wiki/Builder_pattern
 from abc import abstractmethod
-# TODO: Get rid of color and add seats. Make two builders TruckBulder and BusBuilder with 16/2 and 8/40 ratios
 
 
 class Car(object):
 
     def __init__(self):
+        self.type = None
         self.wheels = None
-        self.color = None
+        self.seats = None
 
     def __repr__(self):
-        return '<Car obj. w/ {0.wheels} wheels and color {0.color}>'.format(self)
+        return '<Car {0.type} obj. w/ {0.wheels} wheels and color {0.seats}>'.format(self)
 
 
 class Builder(object):
@@ -22,11 +22,15 @@ class Builder(object):
         self.product = self.product_class()
 
     @abstractmethod
+    def set_type(self, name):
+        raise NotImplementedError()
+
+    @abstractmethod
     def set_wheels(self, number):
         raise NotImplementedError()
 
     @abstractmethod
-    def set_color(self, color):
+    def set_seats(self, seats):
         raise NotImplementedError()
 
     @property
@@ -38,14 +42,17 @@ class CarBuilder(Builder):
 
     product_class = Car
 
+    def set_type(self, name):
+        self.product.type = name
+
     def set_wheels(self, number):
         self.product.wheels = number
 
-    def set_color(self, color):
-        self.product.color = color
+    def set_seats(self, seats):
+        self.product.seats = seats
 
 
-class CarBuilderDirector(object):
+class CarDirector(object):
     """This is a nod to GOF, I'm not sure we really need this part in Python
     We could as well add a construct method to abstract builder? Couldn't we?
     """
@@ -54,10 +61,44 @@ class CarBuilderDirector(object):
 
     def construct(self):
         builder = self.builder()
+        builder.set_type('car')
         builder.set_wheels(4)
-        builder.set_color('green')
+        builder.set_seats(4)
         return builder.result
 
-director = CarBuilderDirector()
+
+class BusDirector(object):
+
+    builder = CarBuilder
+
+    def construct(self):
+        builder = self.builder()
+        builder.set_type('bus')
+        builder.set_wheels(8)
+        builder.set_seats(40)
+        return builder.result
+
+
+class TruckDirector(object):
+
+    builder = CarBuilder
+
+    def construct(self):
+        builder = self.builder()
+        builder.set_type('truck')
+        builder.set_wheels(16)
+        builder.set_seats(2)
+        return builder.result
+
+
+director = CarDirector()
+car = director.construct()
+print(car)
+
+director = BusDirector()
+car = director.construct()
+print(car)
+
+director = TruckDirector()
 car = director.construct()
 print(car)

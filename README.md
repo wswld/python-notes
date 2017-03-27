@@ -23,6 +23,10 @@ Short collection of python examples I come up with while studying Python theory.
 * [Abstract Factory](factories/abstract_factory.py)
 * [Factory Method](factories/factory_method.py)
 
+### Builder
+
+* [Builder](builder/builder.py)
+
 ### Singletons
 
 * [Borg](singletons/borg.py)
