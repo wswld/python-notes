@@ -30,3 +30,7 @@ Short collection of python examples I come up with while studying Python theory.
 ### Singletons
 
 * [Borg](singletons/borg.py)
+
+### Misc
+
+* [Cached Property](misc/cached_property.py)

@@ -1,17 +1,16 @@
-from functools import update_wrapper
+""" Loosely based on https://github.com/bottlepy/bottle/blob/cafc15419cbb4a6cb748e6ecdccf92893bb25ce5/bottle.py#L270 """
 
 
+# TODO: Add class variant to descriptors
 class lazy_loading(object):
-    """Our lazy loading wrapper"""
+    """Our lazy loading descriptor"""
     def __init__(self, function):
         self.function = function
-        update_wrapper(self, function)
 
     def __get__(self, obj, type_):
-        if obj is None:
-            return self
-        value = self.function(obj)
-        obj.__dict__[self.function.__name__] = value
+        if obj is None: return self
+        # it looks the way it looks - we overwrite the original decorated function w/ simple attribute
+        value = obj.__dict__[self.function.__name__] = self.function(obj)
         return value
 
 
