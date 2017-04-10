@@ -10,6 +10,7 @@ Short collection of python examples I come up with while studying Python theory.
 ### Decorators
 
 * [Simple](decorators/decorator.py)
+* [Decorator as a class](decorators/decorator_as_class.py)
 * [Decorator that counts function executions](decorators/decorator_exec_counter.py)
 
 ### Descriptors
