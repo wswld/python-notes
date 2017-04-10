@@ -1,7 +1,6 @@
 """ Loosely based on https://github.com/bottlepy/bottle/blob/cafc15419cbb4a6cb748e6ecdccf92893bb25ce5/bottle.py#L270 """
 
 
-# TODO: Add class variant to descriptors
 class lazy_loading(object):
     """Our lazy loading descriptor"""
     def __init__(self, function):
@@ -9,7 +8,7 @@ class lazy_loading(object):
 
     def __get__(self, obj, type_):
         if obj is None: return self
-        # it looks the way it looks - we overwrite the original decorated function w/ simple attribute
+        # it looks the way it looks - we overwrite the original decorated function w/ basic attribute
         value = obj.__dict__[self.function.__name__] = self.function(obj)
         return value
 
