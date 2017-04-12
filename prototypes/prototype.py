@@ -1,10 +1,10 @@
-from copy import deepcopy
+from copy import copy
 
 
 class Prototype(object):
 
     def clone(self):
-        return deepcopy(self)
+        return copy(self)
 
 
 class ConcretePrototype1(Prototype):
