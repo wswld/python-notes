@@ -1,10 +1,18 @@
-from copy import copy
+""" This is my take at Prototype. I'm not exactly satisfied with stuff I've seen over the web:
+
+1. Some of the solutions introduce a factory/cache into the mix (too complex for such basic idea)
+2. Also there is a suggestion to use simply deepcopy/copy on an object omitting the OOP boilerplate
+
+With my implementation I want to take somewhat middle ground. Let me know if there's something wrong with this design.
+"""
+
+from copy import deepcopy
 
 
 class Prototype(object):
 
     def clone(self):
-        return copy(self)
+        return deepcopy(self)
 
 
 class ConcretePrototype1(Prototype):
