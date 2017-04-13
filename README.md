@@ -32,6 +32,10 @@ Short collection of python examples I come up with while studying Python theory.
 
 * [Borg](singletons/borg.py)
 
+### Prototypes
+
+* [Prototype](prototypes/prototype.py)
+
 ### Misc
 
 * [Cached Property](misc/cached_property.py)

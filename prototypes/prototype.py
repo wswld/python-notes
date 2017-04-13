@@ -22,9 +22,9 @@ class ConcretePrototype1(Prototype):
 
 
 class ConcretePrototype2(Prototype):
+
     def __init__(self):
         self.name = 'Bull'
-
 
 c1 = ConcretePrototype1()
 c2 = ConcretePrototype2()
